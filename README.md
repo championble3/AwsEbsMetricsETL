@@ -67,6 +67,6 @@ SNOWFLAKE_PASSWORD=...
 
    ```bash
    docker-compose up --build
-```
+
 
 
