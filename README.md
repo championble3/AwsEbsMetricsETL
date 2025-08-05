@@ -29,9 +29,31 @@ The ETL process consists of the following steps:
 
 ---
 
+## 🛠️ Setup Instructions
+
+### 1. ✅ Install Prerequisites
+
+Make sure you have installed:
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- Git (optional but useful)
+
+---
+
+### 2. 📂 Clone the Repository
+
+```bash
+git clone https://github.com/championble3/AwsEbsMetricsETL.git
+cd AwsEbsMetricsETL
+
+
+
+
 ## 🐳 How to Run Locally (via Docker)
 
 1. Build and start services:
 
    ```bash
    docker-compose up --build
+
