@@ -2,7 +2,7 @@
 
 This is an end-to-end data pipeline for extracting **EBS (Elastic Block Store) metrics** from AWS, applying necessary transformations, and loading the final data into a **Snowflake** data warehouse.
 
-## 🚀 Pipeline Overview
+## Pipeline Overview
 
 The ETL process consists of the following steps:
 
@@ -19,7 +19,7 @@ The ETL process consists of the following steps:
 
 ---
 
-## ⚙️ Technologies Used
+## Technologies Used
 
 - **Apache Airflow** – Orchestrates ETL tasks.
 - **AWS Boto3 SDK** – Interacts with AWS services.
@@ -41,7 +41,7 @@ Make sure you have installed:
 
 ---
 
-### 2. 📂 Clone the Repository
+### 2. Clone the Repository
 
 ```bash
 git clone https://github.com/championble3/AwsEbsMetricsETL.git
@@ -61,12 +61,13 @@ SNOWFLAKE_PASSWORD=...
 ```
 
 
-## 🐳 How to Run Locally (via Docker)
+## How to Run Locally (via Docker)
 
 1. Build and start services:
 
    ```bash
    docker-compose up --build
+
 
 
 
