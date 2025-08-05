@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  airflow-webserver:
+    image: custom_airflow:latest
+    build: .
+    restart: always
+    depends_on:
+      - airflow-scheduler
+      - airflow-postgres
+    env_file:
+      - .env
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: ${AWS_REGION}
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./aws:/opt/airflow/aws
+    ports:
+      - "8080:8080"
+    command: webserver
+
+  airflow-scheduler:
+    image: custom_airflow:latest
+    build: .
+    restart: always
+    depends_on:
+      - airflow-postgres
+    env_file:
+      - .env
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: ${AWS_REGION}
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./aws:/opt/airflow/aws
+    command: scheduler
+
+  airflow-postgres:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
