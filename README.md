@@ -31,7 +31,7 @@ The ETL process consists of the following steps:
 
 ## 🛠️ Setup Instructions
 
-### 1. ✅ Install Prerequisites
+### 1. Install Prerequisites
 
 Make sure you have installed:
 
@@ -67,6 +67,7 @@ SNOWFLAKE_PASSWORD=...
 
    ```bash
    docker-compose up --build
+
 
 
 
