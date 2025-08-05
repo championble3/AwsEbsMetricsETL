@@ -52,7 +52,7 @@ Then Create a profile in airflow
 ```bash
 mkdir -p airflow/dags airflow/logs airflow/plugins
 ```
-
+Create an .env file
 ```dote
 AWS_ACCESS_KEY_ID=your_key
 AWS_SECRET_ACCESS_KEY=your_secret
@@ -68,4 +68,5 @@ SNOWFLAKE_PASSWORD=...
    ```bash
    docker-compose up --build
 ```
+
 
