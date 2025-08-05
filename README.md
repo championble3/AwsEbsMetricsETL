@@ -46,7 +46,12 @@ Make sure you have installed:
 ```bash
 git clone https://github.com/championble3/AwsEbsMetricsETL.git
 cd AwsEbsMetricsETL
+```
 
+Then Create a profile in airflow 
+```bash
+mkdir -p airflow/dags airflow/logs airflow/plugins
+```
 
 
 
@@ -56,4 +61,4 @@ cd AwsEbsMetricsETL
 
    ```bash
    docker-compose up --build
-
+```
