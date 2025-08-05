@@ -53,6 +53,12 @@ Then Create a profile in airflow
 mkdir -p airflow/dags airflow/logs airflow/plugins
 ```
 
+```dote
+AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+SNOWFLAKE_USER=...
+SNOWFLAKE_PASSWORD=...
+```
 
 
 ## 🐳 How to Run Locally (via Docker)
@@ -62,3 +68,4 @@ mkdir -p airflow/dags airflow/logs airflow/plugins
    ```bash
    docker-compose up --build
 ```
+
